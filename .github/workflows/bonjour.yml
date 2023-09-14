@@ -6,6 +6,12 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-      - run: npm install
-      - run: npm run lint
+      - name: Use node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 19
+      - name: Install dependencies
+        run: npm install
+      - name: Use Linter
+        run: npm run lint
         
