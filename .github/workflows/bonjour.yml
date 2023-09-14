@@ -2,15 +2,10 @@ name: Bonjour
 on:
   - push
 jobs:
-  dire_bonjour:
+  install_node_env:
     runs-on: ubuntu-22.04
     steps:
-      - run: sudo apt-get update -y
-      - run: sudo apt-get install -y cowsay
-      - uses: actions/checkout@v4
-        with:
-          sparse-checkout: |
-            README.md
-          sparse-checkout-cone-mode: false
-      - run: ls -l
-      - run: cat README.md | cowsay
+      - run: npm install
+      - run: npm run lint
+
+        
